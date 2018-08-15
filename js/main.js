@@ -14,16 +14,24 @@
   function loadImages() {
     var promises = [];
 
-    for (var i = 1; i < 14; i++) {
+    // for (var i = 1; i < 14; i++) {
+    //   var deferred = new $.Deferred();
+    //   var img = new Image();
+
+    //   img.onload = deferred.resolve;
+    //   img.src = "img/flame/" + i + ".png";
+
+    //   flameFrames.push(img);
+    //   promises.push(deferred.promise());
+    // }
       var deferred = new $.Deferred();
       var img = new Image();
 
       img.onload = deferred.resolve;
-      img.src = "img/flame/" + i + ".png";
+      img.src = "img/cat/cat.png";
 
       flameFrames.push(img);
       promises.push(deferred.promise());
-    }
 
     return $.when.apply($, promises);
   }
@@ -178,10 +186,10 @@
         frameCount++;
         var orgWidth = 256;
         var orgHeight = 256;
-        var newWidth = (rect.width * 2);
+        var newWidth = (rect.width*1.2);
         var newHeight = newWidth / orgWidth * orgHeight;
-        var fixTop = rect.height * 0.2;
-        var fixLeft = -rect.width / 2;
+        var fixTop = rect.height * 1.05;
+        var fixLeft = rect.width * -0.05;
         var image = flameFrames[frameCount % flameFrames.length];
 
         flames.push({
